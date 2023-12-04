@@ -8,6 +8,17 @@
       "expo-router"
     ],
     "name": "technoverse-test",
-    "slug": "technoverse-test"
+    "slug": "technoverse-test",
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "b8535d58-bae2-4d32-bebc-d4eefd5d3e8d"
+      }
+    },
+    "android": {
+      "package": "com.rednave.technoversetest"
+    }
   }
 }
