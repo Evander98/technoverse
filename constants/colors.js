@@ -7,6 +7,6 @@ export const colors = {
   gray: "#94A3AC",
   solitude: "#E3E8EB",
   background: "#F5F5F5",
-  cardShadow: "rgba(49, 46, 46, 0.07)",
+  cardShadow: "rgb(49, 46, 46)",
   activeTintColor: "#7FBB15",
 };
