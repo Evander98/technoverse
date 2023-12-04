@@ -3,6 +3,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   View,
+  Platform,
 } from "react-native";
 import { spacing } from "../constants/spacing";
 import { colors } from "../constants/colors";
@@ -27,9 +28,15 @@ const styles = StyleSheet.create({
   card: {
     borderRadius: 6,
     backgroundColor: colors.white,
-    shadowColor: colors.cardShadow,
-    shadowOpacity: 1,
-    shadowRadius: 24,
-    elevation: 4,
+    ...Platform.select({
+      ios: {
+        shadowColor: colors.cardShadow,
+        shadowOpacity: 0.07,
+        shadowRadius: 24,
+      },
+      android: {
+        elevation: 24,
+      },
+    }),
   },
 });
