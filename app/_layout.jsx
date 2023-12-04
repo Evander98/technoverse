@@ -5,7 +5,13 @@ import {
   ThemeProvider,
 } from "@react-navigation/native";
 import { SplashScreen, Stack } from "expo-router";
-import { SafeAreaView, StatusBar, useColorScheme } from "react-native";
+import {
+  SafeAreaView,
+  StatusBar,
+  useColorScheme,
+  Platform,
+  StyleSheet,
+} from "react-native";
 import { useFonts } from "expo-font";
 
 export { ErrorBoundary } from "expo-router";
@@ -37,7 +43,7 @@ const RootLayout = () => {
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
       <StatusBar barStyle="dark-content" />
-      <SafeAreaView style={{ flex: 1 }}>
+      <SafeAreaView style={styles.safeArea}>
         <Stack>
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         </Stack>
@@ -47,3 +53,10 @@ const RootLayout = () => {
 };
 
 export default RootLayout;
+
+const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+  },
+});
